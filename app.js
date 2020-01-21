@@ -2,10 +2,18 @@ const express = require('express')
 const app = express()
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
+const mongoose = require('mongoose')
 
 // API's routes
 const productRoutes = require('./api/routes/products')
 const orderRoutes = require('./api/routes/orders')
+
+// Mongoose configuration
+const connectionOptions = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}
+mongoose.connect('mongodb+srv://node-shop:' + process.env.MONGO_ATLAS_PASSWD + '@node-rest-shop-xb4n8.mongodb.net/test?retryWrites=true&w=majority', connectionOptions)
 
 // Logging utility
 app.use(morgan('dev'))
