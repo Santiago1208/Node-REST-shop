@@ -14,6 +14,7 @@ const connectionOptions = {
     useUnifiedTopology: true
 }
 mongoose.connect('mongodb+srv://node-shop:' + process.env.MONGO_ATLAS_PASSWD + '@node-rest-shop-xb4n8.mongodb.net/test?retryWrites=true&w=majority', connectionOptions)
+mongoose.Promise = global.Promise
 
 // Logging utility
 app.use(morgan('dev'))
